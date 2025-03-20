@@ -1,5 +1,5 @@
 import React from 'react'
-import { GeneratePointView } from '../features/generatePoint/ui/generatePointView'
+import { GeneratePointView } from '@features/generatePoint/ui'
 
 type Props = {
 
