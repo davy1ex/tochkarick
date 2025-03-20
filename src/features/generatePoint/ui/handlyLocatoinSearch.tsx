@@ -8,11 +8,11 @@ export const HandlyLocatoinSearch = ({
     fetchCoordinates: (location: string) => Promise<[]>
     onHandlySelectLocation: any
 }) => {
-    const [inputLocation, setInputLocation] = useState("")
+    const [inputLocation, setInputLocation] = useState<string>("")
     const [suggestion, setSuggestion] = useState<[] | null>(null)
-    const [debounceTimer, setDebounceTimer] = useState<Node.timeout | null>(null)
+    const [debounceTimer, setDebounceTimer] = useState(null)
 
-    const handleChangeInputLocation = (e) => {
+    const handleChangeInputLocation = (e: any) => {
         setInputLocation(e.target.value)
 
         if (debounceTimer) clearTimeout(debounceTimer)
@@ -25,11 +25,9 @@ export const HandlyLocatoinSearch = ({
         }, 1000)
     }
 
-    const = onClickSuggestion = () => {
+    const onClickSuggestion = (location: any) => {
         console.log([parseInt(location.lat), parseInt(location.lon)]); 
-        onHandlySelectLocation([parseFloat(location.lat), parseFloat(location.lon)])}}
-
-
+        onHandlySelectLocation([parseFloat(location.lat), parseFloat(location.lon)])
     }
 
     return (
@@ -39,15 +37,16 @@ export const HandlyLocatoinSearch = ({
                 value={inputLocation} 
                 onChange={
                     (e)=>{handleChangeInputLocation(e)}  
-                }/>
-
-                {
-                    suggestion ? 
-                        suggestion.map((location) => (
-                            <p onClick={() => {onClickSuggestion(location)} > { {location["display_name"]}  </p>
-                        ))
-                    : ""
                 }
+            />
+
+            {
+                suggestion ? 
+                    suggestion.map((location) => (
+                        <p onClick={() => {onClickSuggestion(location)}} > {location["display_name"]}  </p>
+                    ))
+                : ""
+            }
         </>
     )
 }
