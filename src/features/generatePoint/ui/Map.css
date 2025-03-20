@@ -1,0 +1,80 @@
+/* .map-component {
+    display: flex;
+    flex-direction: column;
+    background: black;
+    width: 100%;
+} */
+
+.map-wrapper {
+    width: 90%;
+    height: 50vh;
+}
+
+
+.map-container {
+    width: 100%;
+}
+
+.leaflet-control-container{
+    display: none;
+
+}
+.leaflet-bottom {
+    display: none;
+}
+
+.leaflet-container {
+    height: 50vh;
+    /*background: white;*/
+    color: white;
+    position: relative;
+
+}
+
+/* 
+
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+
+    width: 100%;
+
+    background: black;
+}
+
+.controls-container-wrapper {
+    width: 90%;
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.controls-container input, input[type="range"]::-moz-range-progress, input[type="range"]::-ms-fill-lower {
+    color: #6B85D8;
+    background-color: #6B85D8;
+}
+
+.bigBtn {
+    width: 100%;
+}
+
+
+.manual-location-form {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+.manual-location input {
+    color: white;
+    width: 90%;
+    padding: 10px 5px;
+}
+
+.manual-location {
+    background: black;
+} */
