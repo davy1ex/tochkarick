@@ -1,4 +1,4 @@
-import { nominatimApi } from "@/shared/api/nominatimApi";
+import { getLocationByQuery } from "@/shared/api/nominatimApi";
 import { LocationSuggestion } from "../model/types";
 
 export const configFetchLocation = {
@@ -10,7 +10,7 @@ export const fetchLocationsByQuery = async (query: string, slice: number = 3): P
     if (query.length < configFetchLocation.MIN_QUERY_LENGTH) return []
 
     try {
-        const responseCoordinates = await nominatimApi(query)
+        const responseCoordinates = await getLocationByQuery(query)
         const limitedSuggestions = responseCoordinates.slice(0, configFetchLocation.MAX_SUGGESTIONS);
 
         /* 

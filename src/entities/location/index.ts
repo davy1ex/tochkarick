@@ -1,1 +1,0 @@
-export { generateRandomPoint } from './lib/generateRandomPoint'

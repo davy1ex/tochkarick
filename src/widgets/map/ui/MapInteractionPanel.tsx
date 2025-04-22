@@ -1,30 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { Map } from '@/entities/mapCanvas/ui/map'
 import { HandlyLocatoinSearch } from '@/features/setManualLocation/ui/handlyLocatoinSearch'
-import { fetchLocationsByQuery } from '@/features/setManualLocation'
 import { RadiusSlider } from '@/features/changeRadiusGeneration'
 import { GenerateButton } from '@/features/generatePoint'
+import { CardPoint } from '@/entities/point'
+import { addBookmark } from '@/features/bookmarkPoint'
+import { Point } from '@/entities/point/model/types'
+import { BookmarksPoint } from '@/features/bookmarkPoint/ui/BookmarksPoints'
 
 //type Props = {}
 
-export const MapInteractionPanel = (props: Props) => {
+export const MapInteractionPanel = () => {
     const [radius, setRadius] = useState(1000)
-    const [userGettedLocation, setUserGettedLocation] = useState([52, 52])
-    const [pointLocation, setPointLocation] = useState<[number, number] | null>(null)
-
-    useEffect(() => {
-        console.log("pointLocation changed", pointLocation)
-        console.log("userGettedLocation changed", userGettedLocation)
-    }, [pointLocation, userGettedLocation])
+    const [centerLocation, setCenterLocation] = useState([52, 52])
+    /* test purpose */
+    const [point, setPoint] = useState<Point | null>({ coordinates: [42, 42] })
+    /* test purpose */
 
     return (
         <>
-
             <Map
-                pointCoordinates={pointLocation}
+                pointCoordinates={point.coordinates}
                 showRadius={true}
                 radius={radius}
-                centerCoordinates={userGettedLocation}
+                centerCoordinates={centerLocation}
             />
 
             <RadiusSlider
@@ -32,15 +31,29 @@ export const MapInteractionPanel = (props: Props) => {
                 handleRadiusChange={setRadius}
             />
             <HandlyLocatoinSearch
-                fetchCoordinates={fetchLocationsByQuery}
-                onLocationSelect={setUserGettedLocation}
+                onLocationSelect={setCenterLocation}
             />
 
             <GenerateButton
-                userGettedLocation={userGettedLocation}
+                coordinates={centerLocation}
                 radius={radius}
-                setPointLocation={setPointLocation}
+                setPoint={setPoint}
             />
+
+            {point && (
+                <>
+                    <CardPoint
+                        street={point.streetName}
+                        index={"131534"}
+                        handleBookmark={() => { addBookmark(point) }}
+                        handleClose={() => setPoint(null)}
+                    />
+
+                    <BookmarksPoint></BookmarksPoint>
+                </>
+            )}
+
+
         </>
 
     )

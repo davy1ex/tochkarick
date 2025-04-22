@@ -1,0 +1,1 @@
+export { addBookmark } from "./api/addBookmark"

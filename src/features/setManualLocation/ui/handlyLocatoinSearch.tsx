@@ -1,14 +1,11 @@
 import React from "react"
 import { useManualLocationSearch } from "../model/useManualLocationSearch"
-import { fetchLocationsByQuery } from '@/features/setManualLocation'
 
 
 export const HandlyLocatoinSearch = ({
-    fetchCoordinates,
     onLocationSelect,
 
 }: {
-    fetchCoordinates: (location: string) => Promise<[]>
     onLocationSelect: any
 }) => {
     const {

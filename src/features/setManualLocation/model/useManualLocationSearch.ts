@@ -3,7 +3,7 @@ import { Coordinates, LocationSuggestion } from "./types"
 import { fetchLocationsByQuery } from "../api/fetchLocationsByQuery"
 import { configFetchLocation } from "../api/fetchLocationsByQuery"
 
-const DEBOUNCE_DELAY = 50;
+const DEBOUNCE_DELAY = 500;
 
 export const useManualLocationSearch = (
     onLocationSelect: (coordinates: Coordinates) => void
