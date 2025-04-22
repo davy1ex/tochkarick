@@ -1,0 +1,1 @@
+export { fetchLocationsByQuery } from "./api/fetchLocationsByQuery"

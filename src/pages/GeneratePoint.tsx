@@ -1,15 +1,15 @@
 import React from 'react'
-import { GeneratePointView } from '../features/generatePoint/ui/generatePointView'
+import { MapInteractionPanel } from '@/widgets/map'
 
 type Props = {
 
 }
 
-export const GeneratePoint = (props: Props) => {
+export const GeneratePointPage = (props: Props) => {
   return (
     <>
-        <p>GeneratePoint</p>
-        <GeneratePointView/>
+      <p>TochaRick</p>
+      <MapInteractionPanel />
     </>
   )
 }

@@ -1,6 +1,6 @@
-import React, {useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Circle, Marker, useMap } from 'react-leaflet';
-import '../../../../node_modules/leaflet/dist/leaflet.css';
+import '@/../node_modules/leaflet/dist/leaflet.css';
 
 import "./Map.css";
 
@@ -8,10 +8,10 @@ interface MapProps {
     pointCoordinates: [number, number] | null;
     showRadius: boolean;
     radius: number;
-    centerPosition: [number, number];
+    centerCoordinates: [number, number];
 }
 
-export const Map: React.FC<MapProps> = ({ pointCoordinates, showRadius, radius, centerCoordinates}) => {
+export const Map: React.FC<MapProps> = ({ pointCoordinates, showRadius, radius, centerCoordinates }) => {
     const UpdateMapPosition: React.FC<{ position: [number, number] }> = ({ position }) => {
         const map = useMap();
 

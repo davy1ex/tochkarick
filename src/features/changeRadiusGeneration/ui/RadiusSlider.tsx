@@ -1,5 +1,5 @@
 import React from 'react';
-import './radiusSlider.css';
+import './RadiusSlider.css';
 
 interface RadiusSliderProps {
     radius: number;

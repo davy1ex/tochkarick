@@ -1,12 +1,9 @@
 import axios from "axios"
 
-export const fetchCoordinates = async (query: string) => {
+export const nominatimApi = async (query: string): Promise<[any]> => { // todo: change any to correct type
     try {
         const response = await axios.get(`https://nominatim.openstreetmap.org/search?accept-language=ru&format=json&q=${query}`);
-
-        const limitedSuggestions = response.data.slice(0, 3);
-        
-        return limitedSuggestions
+        return response.data
 
     } catch (error) {
         console.error('Error fetching location suggestions:', error);
