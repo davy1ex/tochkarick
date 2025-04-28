@@ -1,0 +1,13 @@
+header,
+.leftHalf,
+.rightHalf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-size: 30px;
+}
+
+.logoContainer {
+    padding-left: 10px;
+}

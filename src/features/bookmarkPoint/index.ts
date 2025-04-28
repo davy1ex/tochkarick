@@ -1,1 +1,1 @@
-export { addBookmark } from "./api/addBookmark"
+export { addBookmark } from "./api/bookmarksApi"

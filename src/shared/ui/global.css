@@ -1,0 +1,23 @@
+:root {
+    --background-color: #121212;
+    --primary-color: #bb86fc;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Titan One', sans-serif;
+}
+
+button {
+    font-family: 'Titan One', sans-serif;
+    padding: 20px;
+    background-color: #6b85d8;
+    border-radius: 30px;
+}
+
+input[type=text] {
+    padding: 10px;
+    border-radius: 15px;
+}

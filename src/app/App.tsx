@@ -9,10 +9,9 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path={ ROUTES_PATHS.HOME } element={<GeneratePointPage/>}/>
-      
-    </Routes>
+      <Routes>
+        <Route path={ROUTES_PATHS.HOME} element={<GeneratePointPage />} />
+      </Routes>
     </BrowserRouter>
   )
 }

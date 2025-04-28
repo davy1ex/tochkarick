@@ -15,10 +15,17 @@ export const MapInteractionPanel = () => {
     const [centerLocation, setCenterLocation] = useState([52, 52])
     /* test purpose */
     const [point, setPoint] = useState<Point | null>({ coordinates: [42, 42] })
+    const [showCardPoint, setShowCardPoint] = useState(false)
+    const [showHandlyLocationSeach, setShowHandlyLocationSearch] = useState(false)
     /* test purpose */
 
+    const handleCloseBookmark = () => {
+        setPoint([0, 0])
+        setShowCardPoint(false)
+    }
+
     return (
-        <>
+        <div className='mapInteractionPanelWrapper'>
             <Map
                 pointCoordinates={point.coordinates}
                 showRadius={true}
@@ -26,35 +33,46 @@ export const MapInteractionPanel = () => {
                 centerCoordinates={centerLocation}
             />
 
-            <RadiusSlider
-                radius={radius}
-                handleRadiusChange={setRadius}
-            />
-            <HandlyLocatoinSearch
-                onLocationSelect={setCenterLocation}
-            />
+            {(point && showCardPoint)
+                ? (
+                    <>
+                        <CardPoint
+                            street={point.streetName}
+                            index={"131534"}
+                            handleBookmark={() => { addBookmark(point) }}
+                            handleClose={handleCloseBookmark}
+                        />
 
-            <GenerateButton
-                coordinates={centerLocation}
-                radius={radius}
-                setPoint={setPoint}
-            />
+                        {/* <BookmarksPoint></BookmarksPoint> */}
+                    </>
+                )
+                : (
+                    <>
 
-            {point && (
-                <>
-                    <CardPoint
-                        street={point.streetName}
-                        index={"131534"}
-                        handleBookmark={() => { addBookmark(point) }}
-                        handleClose={() => setPoint(null)}
-                    />
+                        <RadiusSlider
+                            radius={radius}
+                            handleRadiusChange={setRadius}
+                        />
 
-                    <BookmarksPoint></BookmarksPoint>
-                </>
-            )}
+                        <GenerateButton
+                            coordinates={centerLocation}
+                            radius={radius}
+                            setPoint={setPoint}
+                            onSetPoint={setShowCardPoint}
+                        />
+
+                        <HandlyLocatoinSearch
+                            showHandlyLocationSeach={showHandlyLocationSeach}
+                            onLocationSelect={setCenterLocation}
+                            onClickShowHandlyLocationSeach={setShowHandlyLocationSearch}
+                        />
+                    </>
+                )
+
+            }
 
 
-        </>
+        </div>
 
     )
 }

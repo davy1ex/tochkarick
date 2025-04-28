@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getAllBookmarks } from "../api/getBookmarks"
+import { getAllBookmarks } from "../api/bookmarksApi"
 import { Point } from "@/entities/point/model/types"
 
 export const BookmarksPoint = () => {

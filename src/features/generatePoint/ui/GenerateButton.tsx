@@ -3,18 +3,11 @@ import { generateRandomPoint } from '@/entities/point'
 import { Point } from "@/entities/point/model/types";
 import { getStreetByCoordinates } from "@/entities/point/api/getStreetByCoordinates";
 
-const setPoint = () => {
-    const point: Point = {
-        id: 0,
-        streetName: "Пушкина22",
-        coordinates: null
-    }
-}
-
 export const GenerateButton = ({
     coordinates,
     radius,
-    setPoint
+    setPoint,
+    onSetPoint,
 }) => {
     const handleGeneratePoint = async () => {
         const newCoordinates = generateRandomPoint(coordinates, radius)
@@ -26,6 +19,7 @@ export const GenerateButton = ({
             streetName: streetName,
             coordinates: coordinates
         })
+        onSetPoint(true)
     }
 
     return (
