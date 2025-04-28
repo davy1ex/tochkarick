@@ -1,3 +1,5 @@
+import "./CardPoint.css"
+
 export const CardPoint = ({ street, index, handleBookmark, handleClose }) => {
     return (
         <>

@@ -1,0 +1,11 @@
+.basicLayoutWrapper {
+    max-width: 500px;
+    margin: auto;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+
+.basicLayoutWrapper>* {
+    flex-shrink: 0;
+}
