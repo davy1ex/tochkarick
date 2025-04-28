@@ -6,12 +6,13 @@ export const CardPoint = ({ street, index, handleBookmark, handleClose }) => {
             <div className="textContainer">
                 <div className="textAboutPoint">
                     <h1>Point Generated!</h1>
-                    <p>{street}</p>
-                    <p>{index}</p>
+                    <div className="buttonBookmark" onClick={handleBookmark}>
+                        🔖
+                    </div>
+                    {/* <p>{index}</p> */}
                 </div>
-                <div className="buttonBookmark" onClick={handleBookmark}>
-                    🔖
-                </div>
+                <p>{street}</p>
+
             </div>
 
             <div className="buttonClose" onClick={handleClose}>

@@ -1,14 +1,41 @@
 .cardPointWrapper {
     background: #6b85d8;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    ;
+    margin-top: -10px;
+    position: relative;
+    z-index: 2;
+}
+
+.textAboutPoint {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.buttonBookmark {
+    display: flex;
+    align-items: center;
+    font-size: larger;
+}
+
+.textContainer {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+
+.buttonClose {
+    width: 100%;
+
 }
 
 button {
     background-color: #a2b8ff !important;
+    width: 100%;
 }

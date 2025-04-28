@@ -8,6 +8,8 @@ import { addBookmark } from '@/features/bookmarkPoint'
 import { Point } from '@/entities/point/model/types'
 import { BookmarksPoint } from '@/features/bookmarkPoint/ui/BookmarksPoints'
 
+import "./MapInteractionPanel.css"
+
 //type Props = {}
 
 export const MapInteractionPanel = () => {
