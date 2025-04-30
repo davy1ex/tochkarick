@@ -1,5 +1,5 @@
 export interface Point {
     id?: number,
-    streetName: string,
+    streetName?: string,
     coordinates: [number, number] | null
 }

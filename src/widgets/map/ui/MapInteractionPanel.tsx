@@ -13,15 +13,15 @@ import "./MapInteractionPanel.css"
 
 export const MapInteractionPanel = () => {
     const [radius, setRadius] = useState(1000)
-    const [centerLocation, setCenterLocation] = useState([52, 52])
+    const [centerLocation, setCenterLocation] = useState<[number, number]>([52, 52])
     /* test purpose */
-    const [point, setPoint] = useState<Point | null>({ coordinates: [42, 42] })
+    const [point, setPoint] = useState<Point | null>({coordinates: [42, 42] })
     const [showCardPoint, setShowCardPoint] = useState(false)
     const [showHandlyLocationSeach, setShowHandlyLocationSearch] = useState(false)
     /* test purpose */
 
     const handleCloseBookmark = () => {
-        setPoint([0, 0])
+        setPoint({coordinates: [42, 42] })
         setShowCardPoint(false)
     }
 

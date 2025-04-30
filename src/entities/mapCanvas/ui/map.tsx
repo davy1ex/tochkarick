@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Circle, Marker, useMap } from 'react-leaflet';
 import '@/../node_modules/leaflet/dist/leaflet.css';
 
 import "./Map.css";
-
 interface MapProps {
     pointCoordinates: [number, number] | null;
     showRadius: boolean;
@@ -27,7 +26,9 @@ export const Map: React.FC<MapProps> = ({ pointCoordinates, showRadius, radius, 
     return (
         <div className="map-component">
             <div className="map-container">
-                <MapContainer center={centerCoordinates} zoom={13}>
+                //@ts-ignore
+                <MapContainer center={centerCoordinates} zoom={13}> 
+                //@ts-ignore
                     <TileLayer
                         url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -14,7 +14,7 @@ export const RadiusSlider: React.FC<RadiusSliderProps> = ({ radius, handleRadius
                 min="100"
                 max="5000"
                 value={radius}
-                onChange={(e) => handleRadiusChange(e.target.value)}
+                onChange={(e) => handleRadiusChange(Number(e.target.value))}
                 className="slider"
             />
             <div className={"slider-component"}>{radius} meters</div>
