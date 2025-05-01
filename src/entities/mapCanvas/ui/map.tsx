@@ -26,9 +26,7 @@ export const Map: React.FC<MapProps> = ({ pointCoordinates, showRadius, radius, 
     return (
         <div className="map-component">
             <div className="map-container">
-                //@ts-ignore
-                <MapContainer center={centerCoordinates} zoom={13}> 
-                //@ts-ignore
+                <MapContainer center={centerCoordinates} zoom={13}>
                     <TileLayer
                         url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
