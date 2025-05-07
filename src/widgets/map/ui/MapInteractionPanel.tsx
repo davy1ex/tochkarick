@@ -3,7 +3,7 @@ import { Map } from '@/entities/mapCanvas/ui/map'
 import { HandlyLocatoinSearch } from '@/features/setManualLocation/ui/handlyLocatoinSearch'
 import { RadiusSlider } from '@/features/changeRadiusGeneration'
 import { GenerateButton } from '@/features/generatePoint'
-import { CardPoint } from '@/entities/point'
+import { CardPoint, useBookmarksStore } from '@/entities/point'
 import { addBookmark } from '@/features/bookmarkPoint'
 import { Point } from '@/entities/point/model/types'
 import { BookmarksPoint } from '@/features/bookmarkPoint/ui/BookmarksPoints'
@@ -15,13 +15,15 @@ export const MapInteractionPanel = () => {
     const [radius, setRadius] = useState(1000)
     const [centerLocation, setCenterLocation] = useState<[number, number]>([52, 52])
     /* test purpose */
-    const [point, setPoint] = useState<Point | null>({coordinates: [42, 42] })
+    const [point, setPoint] = useState<Point | null>({ coordinates: [42, 42] })
     const [showCardPoint, setShowCardPoint] = useState(false)
     const [showHandlyLocationSeach, setShowHandlyLocationSearch] = useState(false)
+
+    const addBookmark = useBookmarksStore((state) => state.addBookmark)
     /* test purpose */
 
     const handleCloseBookmark = () => {
-        setPoint({coordinates: [42, 42] })
+        setPoint({ coordinates: [42, 42] })
         setShowCardPoint(false)
     }
 
@@ -44,7 +46,7 @@ export const MapInteractionPanel = () => {
                             handleClose={handleCloseBookmark}
                         />
 
-                        {/* <BookmarksPoint></BookmarksPoint> */}
+                        <BookmarksPoint></BookmarksPoint>
                     </>
                 )
                 : (
