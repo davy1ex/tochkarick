@@ -38,8 +38,8 @@ export const MapInteractionPanel = () => {
                 ? (
                     <>
                         <CardPoint
-                            street={point.streetName}
-                            index={"131534"}
+                            street={point.streetName || ''}
+                            coordinates={point.coordinates || [0, 0]}
                             handleBookmark={() => { addBookmark(point) }}
                             handleClose={handleCloseBookmark}
                         />

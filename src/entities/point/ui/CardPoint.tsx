@@ -1,6 +1,26 @@
 import "./CardPoint.css"
+import { Point } from "../model/types"
 
-export const CardPoint = ({ street, index, handleBookmark, handleClose }) => {
+interface CardPointProps {
+    street: string;
+    coordinates: [number, number];
+    handleBookmark: () => void;
+    handleClose: () => void;
+}
+
+export const CardPoint = ({ street, coordinates, handleBookmark, handleClose }: CardPointProps) => {
+    const handleStartJourney = () => {
+        if (!coordinates || coordinates.length !== 2) {
+            console.error('Invalid coordinates');
+            return;
+        }
+        
+        const [lat, lng] = coordinates;
+        // Using coordinates for direct navigation in Google Maps
+        const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+        window.open(googleMapsUrl, '_blank');
+    };
+
     return (
         <div className="cardPointWrapper">
             <div className="textContainer">
@@ -9,23 +29,22 @@ export const CardPoint = ({ street, index, handleBookmark, handleClose }) => {
                     <div className="buttonBookmark" onClick={handleBookmark}>
                         🔖
                     </div>
-                    {/* <p>{index}</p> */}
                 </div>
                 <p>{street}</p>
-
+                {coordinates && (
+                    <p>Coordinates: {coordinates[0].toFixed(6)}, {coordinates[1].toFixed(6)}</p>
+                )}
             </div>
 
-            <div className="buttonClose" onClick={handleClose}>
-                <button>Start Journey</button>
+            <div className="buttonClose">
+                <button onClick={handleStartJourney}>Start Journey</button>
             </div>
-            <div className="buttonClose" onClick={handleClose}>
+            <div className="buttonClose">
                 <button>Create report</button>
             </div>
-            <div className="buttonClose" onClick={handleClose}>
-                <button>Close</button>
+            <div className="buttonClose">
+                <button onClick={handleClose}>Close</button>
             </div>
-
-
         </div>
     )
 }
