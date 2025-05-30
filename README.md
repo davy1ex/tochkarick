@@ -1,54 +1,47 @@
-# React + TypeScript + Vite
+# TochkaRikck
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Leaflet](https://img.shields.io/badge/Leaflet-3C8D3B?style=for-the-badge&logo=leaflet&logoColor=white
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+App for generate random points behind user location and have fun adventure!
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+[Try it out here.](https://tochkarick.vercel.app/)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Key Features:
+- **Random Location Generation**: Get random coordinates based on your current location.
+- **Interactive Map**: View generated locations on a dynamic map using **Leaflet.js**.
+- **User Intent**: Enter an intention to personalize your location generation.
+- **Customizable Radius**: Define the search radius for your random coordinates.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Technologies Used:
+- **React** - The JavaScript library for building user interfaces.
+- **TypeScript** - A superset of JavaScript for more robust and maintainable code.
+- **Leaflet.js** - A leading open-source JavaScript library for mobile-friendly interactive maps.
+- **GeoLocation API** - To determine the user’s current location.
+- **Random Number Generation** - For generating unpredictable random locations based on the user’s parameters.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Screenshots
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+#### Map View
+
+![Untitled](https://github.com/user-attachments/assets/319748eb-f1a2-4b1c-ac0c-2222392e2b4f)
+
+
+## How to Run the Application
+
+### Prerequisites:
+- **Node.js** (v14+ recommended)
+- **npm** 
+
+### Getting Started:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/davy1ex/tochkarick
+   cd tochkarick
+   npm i && npm run dev
+   ```
