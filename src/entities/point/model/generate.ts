@@ -1,7 +1,7 @@
 export const generateRandomPoint = (
     coordinates: [number, number],
     radiusInMeters: number
-) => {
+): [number, number] => {
     const lat = parseFloat(String(coordinates[0]))
     const lon = parseFloat(String(coordinates[1]))
 

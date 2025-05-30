@@ -11,13 +11,14 @@ export const GenerateButton = ({
 }) => {
     const handleGeneratePoint = async () => {
         const newCoordinates = generateRandomPoint(coordinates, radius)
-        const streetName = await getStreetByCoordinates(coordinates)
+        if (newCoordinates.length < 2) return
+        const streetName = await getStreetByCoordinates({coordinates: newCoordinates})
         console.log("street is", streetName)
 
         setPoint({
             id: 0,
             streetName: streetName,
-            coordinates: coordinates
+            coordinates: newCoordinates
         })
         onSetPoint(true)
     }
